@@ -171,7 +171,7 @@
         <!--Navigation Controller-->
         <scene sceneID="SAT-jX-Brl">
             <objects>
-                <navigationController id="2oI-a0-7p3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListDetailNavigationController" id="2oI-a0-7p3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8d0-Fl-Oz5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
