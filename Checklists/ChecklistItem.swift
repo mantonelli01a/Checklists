@@ -30,6 +30,10 @@ class ChecklistItem: NSObject, NSCoding {
         super.init()
     }
     
+    deinit {
+        removeNotification()
+    }
+    
     func toggleChecked() {
         checked = !checked
     }
@@ -43,6 +47,7 @@ class ChecklistItem: NSObject, NSCoding {
     }
     
     func scheduleNotification() {
+        removeNotification()
         if shouldRemind && dueDate > Date() {
             // 1
             let content = UNMutableNotificationContent()
@@ -61,5 +66,10 @@ class ChecklistItem: NSObject, NSCoding {
             center.add(request)
             print("Scheduled notification \(request) for itemID \(itemID)")
         }
+    }
+    
+    func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: ["\(itemID)"])
     }
 }
