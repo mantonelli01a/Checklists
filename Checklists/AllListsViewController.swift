@@ -61,7 +61,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         dataModel.lists.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
@@ -79,7 +79,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowChecklist" {
             let controller = segue.destination as! ChecklistViewController
-            controller.checklist = sender as! Checklist
+            controller.checklist = sender as? Checklist
         } else {
             if segue.identifier == "AddChecklist" {
                 let navigationController = segue.destination as! UINavigationController
